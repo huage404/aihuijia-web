@@ -6,11 +6,15 @@ export default defineNuxtConfig({
     modules: [
         '@pinia/nuxt'
     ],
+    plugins: [{
+        src: '~/plugins/naive-ui.ts',
+        mode: "client"
+    }],
     app: {
-       head: {
-           title: '爱惠家 Web 端',
-           meta: [{name: 'naive-ui-style'}]
-       }
+        head: {
+            title: '爱惠家 Web 端',
+            meta: [{name: 'naive-ui-style'}]
+        }
     },
     build: {
         transpile:
@@ -34,7 +38,8 @@ export default defineNuxtConfig({
     css: [
         'vfonts/Lato.css',
         'vfonts/FiraCode.css',
-        '~/assets/styles/main.css'
+        '~/assets/styles/main.css',
+        '~/assets/styles/preflight.css',
     ],
     postcss: {
         plugins: {
