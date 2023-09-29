@@ -1,5 +1,15 @@
+<script lang="ts" setup>
+import {onMounted} from "vue";
+import useUserStore from "../stores/user";
+import {navigateTo} from "nuxt/app";
+
+const userStore = useUserStore();
+onMounted(() => {
+  const targetPath = userStore.isLoggedIn ? '/home' : '/login';
+  navigateTo({path: targetPath}, {replace: true})
+})
+</script>
+
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <div>Loading</div>
 </template>

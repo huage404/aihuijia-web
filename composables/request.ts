@@ -1,26 +1,28 @@
 import {merge} from 'lodash';
+import {$fetch} from 'ofetch';
+import useUserStore from "~/stores/user";
 
 type FetchType = typeof $fetch;
 type ReqType = Parameters<FetchType>[0];
 type FetchOptions = Parameters<FetchType>[1];
 
-export const request = <T = unknown>(request: ReqType, body?: any, opts?: FetchOptions) => {
-    const token = '';
+export const useRequest = <T = unknown>(request: ReqType, opts?: FetchOptions) => {
+    const token = useUserStore().token;
 
     const defaultOpts = {
-        baseURL: '/api',
         headers: {
-            Authorization: token
+            Authorization: token,
+            "Content-Type": "application/json"
         },
         onRequestError: onRequestError,
         onResponseError: onResponseError
     } as FetchOptions;
 
-    return $fetch<T>(request, merge(defaultOpts, opts))
+    return $fetch<IResponse<T>>(request, merge(defaultOpts, opts))
 }
 
-const onRequestError = () => {
-    console.error("🚀 ~ log error: ----- 请求出错，请重试!");
+const onRequestError = ({error, request}) => {
+    console.error(`🚀 ~ log error: ----- ${request}`, error.message);
 }
 
 const onResponseError = ({response}) => {
@@ -44,7 +46,7 @@ const onResponseError = ({response}) => {
             console.error("🚀 ~ log error: ----- 服务器故障");
             break;
         default:
-            console.error("🚀 ~ log error: ----- 忘了链接错误");
+            console.error("🚀 ~ log error: ----- 网络链接错误");
             break;
     }
 }

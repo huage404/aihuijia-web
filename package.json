@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "await-to-js": "^3.0.0",
+    "h3": "^1.8.2",
     "lodash": "^4.17.21",
     "pinia": "^2.1.6"
   }
