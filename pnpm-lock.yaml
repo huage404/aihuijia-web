@@ -5,6 +5,7 @@ specifiers:
   '@nuxt/devtools': latest
   '@nuxt/eslint-config': ^0.2.0
   eslint: ^8.50.0
+  lodash: ^4.17.21
   naive-ui: ^2.34.4
   nuxt: ^3.7.4
   prettier: ^3.0.3
@@ -13,6 +14,9 @@ specifiers:
   vfonts: ^0.0.3
   vue: ^3.3.4
   vue-router: ^4.2.5
+
+dependencies:
+  lodash: 4.17.21
 
 devDependencies:
   '@css-render/vue3-ssr': 0.15.12_vue@3.3.4
@@ -4386,7 +4390,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /lru-cache/10.0.1:
     resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==}
