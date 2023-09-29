@@ -6,6 +6,12 @@ export default defineNuxtConfig({
     modules: [
         '@pinia/nuxt'
     ],
+    app: {
+       head: {
+           title: '爱惠家 Web 端',
+           meta: [{name: 'naive-ui-style'}]
+       }
+    },
     build: {
         transpile:
             process.env.NODE_ENV === 'production'
@@ -25,7 +31,11 @@ export default defineNuxtConfig({
                     : []
         }
     },
-    css: ['~/assets/styles/main.css'],
+    css: [
+        'vfonts/Lato.css',
+        'vfonts/FiraCode.css',
+        '~/assets/styles/main.css'
+    ],
     postcss: {
         plugins: {
             tailwindcss: {},

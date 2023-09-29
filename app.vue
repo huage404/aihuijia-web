@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import 'vfonts/Lato.css';
-import 'vfonts/FiraCode.css';
-
 import {NConfigProvider, GlobalThemeOverrides, zhCN, dateZhCN} from 'naive-ui'
 
 const themeOverrides: GlobalThemeOverrides = {
@@ -12,24 +9,21 @@ const themeOverrides: GlobalThemeOverrides = {
     textColor: '#FF0000'
   }
 }
-
-useHead({
-  meta: [{name: 'naive-ui-style'}]
-})
-
 </script>
 
 
 <template>
-  <NuxtLayout>
+  <Html>
     <n-config-provider
         preflight-style-disabled
         :locale="zhCN"
         :date-locale="dateZhCN"
         :theme-overrides="themeOverrides"
     >
-      <NuxtPage/>
+      <NuxtLayout>
+        <NuxtPage/>
+      </NuxtLayout>
       <n-global-style/>
     </n-config-provider>
-  </NuxtLayout>
+  </Html>
 </template>
