@@ -7,8 +7,8 @@ import {navigateTo} from "nuxt/app";
 const userStore = useUserStore();
 
 const fromData = reactive({
-  userName: '15797782051',
-  passwd: 'xiazhenhua123.'
+  userName: '',
+  passwd: ''
 })
 
 const handleLoginBtnClick = async () => {

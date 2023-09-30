@@ -26,15 +26,15 @@ const onRequestError = ({error, request}) => {
 }
 
 const onResponseError = ({response}) => {
-    switch (response.status){
+    const userStore = useUserStore();
+    console.info("🚀 ~ log info: ----- parseInt(response.status):", parseInt(response.status));
+    switch (parseInt(response.status)){
         case 400:
             console.error("🚀 ~ log error: ----- 参数错误");
             break;
         case 401:
             console.error("🚀 ~ log error: ----- 没有访问权限，登陆信息过期，重新登录");
-            navigateTo({
-                path: '/login'
-            });
+            userStore.logout();
             break;
         case 403:
             console.error("🚀 ~ log error: ----- 服务器拒绝访问");

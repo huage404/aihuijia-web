@@ -20,9 +20,11 @@ const themeOverrides: GlobalThemeOverrides = {
         :date-locale="dateZhCN"
         :theme-overrides="themeOverrides"
     >
-      <NuxtLayout>
-        <NuxtPage/>
-      </NuxtLayout>
+      <n-message-provider>
+        <NuxtLayout>
+          <NuxtPage/>
+        </NuxtLayout>
+      </n-message-provider>
       <n-global-style/>
     </n-config-provider>
   </Html>
